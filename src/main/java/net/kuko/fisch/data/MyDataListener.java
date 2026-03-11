@@ -20,14 +20,9 @@ public class MyDataListener extends SimpleJsonResourceReloadListener implements 
 
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> object, ResourceManager resourceManager, ProfilerFiller profilerFiller) {
-        Fisch.LOGGER.info(object.toString());
-        Fisch.LOGGER.info(resourceManager.toString());
-        Fisch.LOGGER.info(profilerFiller.toString());
+
     }
 
-    /**
-     * @return The unique identifier of this listener.
-     */
     @Override
     public ResourceLocation getFabricId() {
         return new ResourceLocation(Fisch.MOD_ID, "data_listener");
