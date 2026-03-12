@@ -1,12 +1,24 @@
-# Subject to frequent changes - :warning: ***highly unstable*** :warning:
-Not a Fishing Mod
+# Fisch
 
+> ⚠️ **Highly unstable** — subject to frequent changes
 
+Not a Fishing Mod.
 
-![Sourcerer](https://img.shields.io/endpoint?url=https://ghloc.vercel.app/api/kuko010/FischFabric/badge)
+<img width="128" height="128" alt="cod" src="https://github.com/user-attachments/assets/59b446a4-05a0-4969-aad5-9195d270f482" />
+
+---
+
+![Lines of Code](https://img.shields.io/endpoint?url=https://ghloc.vercel.app/api/kuko010/FischFabric/badge)
 ![Last Commit](https://img.shields.io/github/last-commit/kuko010/FischFabric)
 ![License](https://img.shields.io/badge/License-MIT0-blue.svg)
 [![Repo Health](https://api.gitscope.dev/api/badges/kuko010/FischFabric/health.svg)](https://gitscope.dev)
 
+## Publishing to GitHub Setup
+Create a `.env` file at the project root:
+```env
+GITHUB_TOKEN=ghp_yourtoken
+```
+and change "github_repo" in [Properties](gradle.properties) to yours github path
 
-<img width="256" height="256" alt="cod" src="https://github.com/user-attachments/assets/59b446a4-05a0-4969-aad5-9195d270f482" />
+## License
+[MIT0](LICENSE)
