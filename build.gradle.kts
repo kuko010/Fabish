@@ -101,7 +101,7 @@ dependencies {
     include("org.luaj:luaj-jse:3.0.1")*/
 
     /* SpruceUI */
-    include(modImplementation("dev.lambdaurora:spruceui:${project.property("spruceui_version")}"))
+    include(modImplementation("dev.lambdaurora:spruceui:${project.property("spruceui_version")}") as Dependency)
     include("dev.yumi.mc.core:yumi-mc-foundation:1.0.0-alpha.15+1.21.1")
 
     /* Config */
