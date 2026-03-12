@@ -36,9 +36,6 @@ repositories {
     /* TeamReborn Energy */
     maven { name = "ModMaven"; url = uri("https://modmaven.dev") }
 
-    /* owo-lib */
-    maven { url = uri("https://maven.wispforest.io/releases/") }
-
     /* Satin */
     maven {
         name = "Ladysnake Mods"
@@ -58,9 +55,6 @@ repositories {
         }
     }
 
-    /* Midnight lib */
-    maven("https://maven.midnightdust.eu/releases")
-
     /* Mood Menu */
     maven {
         name = "Terraformers"
@@ -70,6 +64,12 @@ repositories {
     /* Config */
     maven("https://maven.isxander.dev/releases") {
         name = "Xander Maven"
+    }
+
+    /* SpruceUI */
+    maven {
+        name = "Gegy"
+        url = uri("https://maven.gegy.dev")
     }
 }
 
@@ -96,13 +96,17 @@ dependencies {
     include("teamreborn:energy:3.0.0")
 
     /* Lua */
-    implementation("org.luaj:luaj-jse:3.0.1")
+   /* implementation("org.luaj:luaj-jse:3.0.1")
     modImplementation("org.luaj:luaj-jse:3.0.1")
-    include("org.luaj:luaj-jse:3.0.1")
+    include("org.luaj:luaj-jse:3.0.1")*/
+
+    /* SpruceUI */
+    include(modImplementation("dev.lambdaurora:spruceui:${project.property("spruceui_version")}"))
+    include("dev.yumi.mc.core:yumi-mc-foundation:1.0.0-alpha.15+1.21.1")
 
     /* Config */
     modCompileOnly( "dev.isxander:yet-another-config-lib:${project.property("yacl_version")}")
-  //  modRuntimeOnly( "dev.isxander:yet-another-config-lib:${project.property("yacl_version")}")
+    modRuntimeOnly( "dev.isxander:yet-another-config-lib:${project.property("yacl_version")}")
 
 
     /* Modmenu */
