@@ -5,6 +5,7 @@ package com.wdiscute.libtooltips;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.kuko.fisch.config.ConfigUtils;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,13 +23,15 @@ public class Tooltips implements ClientModInitializer  {
 
     @Override
     public void onInitializeClient() {
-        // modify lines (List<Text>) here
-        ItemTooltipCallback.EVENT.register(Tooltips::modifyItemTooltip);
+        if (ConfigUtils.handler.enableLibTooltips) {
+            // modify lines (List<Text>) here
+            ItemTooltipCallback.EVENT.register(Tooltips::modifyItemTooltip);
 
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            // Called every client tick
-            renderFrame();
-        });
+            ClientTickEvents.END_CLIENT_TICK.register(client -> {
+                // Called every client tick
+                renderFrame();
+            });
+        }
     }
 
     public static void renderFrame() {
