@@ -1,8 +1,6 @@
 package net.kuko.fabish.registry;
 
 import net.kuko.fabish.Fabish;
-import net.kuko.fabish.registry.item.PewPewItem;
-import net.kuko.fabish.registry.item.RainbowArrowItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -16,13 +14,6 @@ public class ModItems {
 		"suspicious_substance"
 );
      */
-
-    // Typed as RainbowArrowItem — all your custom methods are accessible
-    public static final RainbowArrowItem RAINBOW_ARROW =
-            (RainbowArrowItem) item("rainbow_arrow", new RainbowArrowItem(new Item.Properties()));
-
-    public static final Item PEW_PEW = item("pew_pew", new PewPewItem(RAINBOW_ARROW));
-
 
     private static Item item(String name, Item item) {
         return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(Fabish.MOD_ID, name), item);
