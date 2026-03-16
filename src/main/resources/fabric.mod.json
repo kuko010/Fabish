@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "fabish",
+	"id": "ish",
 	"version": "${version}",
-	"name": "Fabish",
+	"name": "Ish",
 	"description": "Here can go anything, literally.",
 	"authors": [
 		"kuko"
@@ -12,23 +12,23 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT0",
-	"icon": "assets/fabish/icon.png",
+	"icon": "assets/ish/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "net.kuko.fabish.Fabish"
+          "net.kuko.ish.Fabish"
 		],
 		"fabric-datagen": [
-			"net.kuko.fabish.FabishDataGenerator"
+			"net.kuko.ish.FabishDataGenerator"
 		],
 		"client": [
-			"net.kuko.fabish.FabishClient",
+			"net.kuko.ish.FabishClient",
 			"com.wdiscute.libtooltips.Tooltips"
 		],
-		"modmenu": [ "net.kuko.fabish.compat.config.ModMenuIntegration" ]
+		"modmenu": [ "net.kuko.ish.compat.config.ModMenuIntegration" ]
 	},
 	"mixins": [
-		"fisch.mixins.json"
+		"ish.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18.4",
