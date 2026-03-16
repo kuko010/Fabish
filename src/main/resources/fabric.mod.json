@@ -24,7 +24,8 @@
 		"client": [
 			"net.kuko.fabish.FabishClient",
 			"com.wdiscute.libtooltips.Tooltips"
-		]
+		],
+		"modmenu": [ "net.kuko.fabish.compat.config.ModMenuIntegration" ]
 	},
 	"mixins": [
 		"fisch.mixins.json"

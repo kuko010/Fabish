@@ -18,6 +18,17 @@ public class Config {
                         .group(OptionGroup.createBuilder()
                                 .name(Component.literal("Options"))
                                 .option(Option.<Boolean>createBuilder()
+                                        .name(Component.literal("Enable Fullbright"))
+                                        .binding(
+                                                false,
+                                                () -> handler.enableFullbright, // Use handler instance
+                                                newVal -> handler.enableFullbright = newVal
+                                        )
+                                        .controller(TickBoxControllerBuilder::create)
+                                        .build())
+
+
+                                .option(Option.<Boolean>createBuilder()
                                         .name(Component.literal("Enable LibTooltips"))
                                         .binding(
                                                 false,

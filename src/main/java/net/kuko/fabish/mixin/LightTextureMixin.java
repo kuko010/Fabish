@@ -2,6 +2,8 @@ package net.kuko.fabish.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.kuko.fabish.compat.config.ConfigOptions;
+import net.kuko.fabish.compat.config.ConfigUtils;
 import net.minecraft.client.renderer.LightTexture;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,8 +20,6 @@ public class LightTextureMixin {
             )
     )
     private float getGammaFloatValue(Double instance, Operation<Float> original) {
-        //todo: add actual Config, for now hardcoding for "false" (
-        var configVal = false;
-        return original.call((!configVal ? instance : Double.valueOf(Float.MAX_VALUE)));
+        return original.call((!ConfigUtils.handler.enableFullbright ? instance : Double.valueOf(Float.MAX_VALUE)));
     }
 }
