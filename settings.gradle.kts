@@ -1,4 +1,4 @@
-rootProject.name = "fabish"
+rootProject.name = "ish"
 pluginManagement {
 	repositories {
 		maven("https://maven.fabricmc.net/") {
