@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "net.kuko.ish.Fabish"
+          "net.kuko.ish.Ish"
 		],
 		"fabric-datagen": [
-			"net.kuko.ish.FabishDataGenerator"
+			"net.kuko.ish.IshDataGenerator"
 		],
 		"client": [
-			"net.kuko.ish.FabishClient",
+			"net.kuko.ish.IshClient",
 			"com.wdiscute.libtooltips.Tooltips"
 		],
 		"modmenu": [ "net.kuko.ish.compat.config.ModMenuIntegration" ]
