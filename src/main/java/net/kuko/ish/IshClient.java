@@ -15,7 +15,6 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.joml.Matrix4f;
 
@@ -25,20 +24,29 @@ import java.util.List;
 
 public class IshClient implements ClientModInitializer {
 
-    private static final List<Block> renderBlocks = Collections.synchronizedList(new ArrayList<>());
+    private static List<BlockPos> renderBlockPos = Collections.synchronizedList(new ArrayList<>());
 
-    public static void add(Block block) {
-        renderBlocks.add(block);
+    public static void add(BlockPos pos) {
+        renderBlockPos.add(pos);
     }
 
-    public static void remove(Block block) {
-        if (renderBlocks.contains(block)) {
-            renderBlocks.remove(block);
+    public static void remove(BlockPos pos) {
+        if (renderBlockPos.contains(pos)) {
+            renderBlockPos.remove(pos);
         }
     }
 
-    public static boolean contains(Block block) {
-        return renderBlocks.contains(block);
+    public static void override(List<BlockPos> blockPoss) {
+        renderBlockPos = Collections.synchronizedList(new ArrayList<>(blockPoss));
+    }
+
+
+    public static List<BlockPos> renderBlockPos() {
+        return renderBlockPos;
+    }
+
+    public static boolean contains(BlockPos pos) {
+        return renderBlockPos.contains(pos);
     }
 
     private static void render(WorldRenderContext context) {
@@ -56,25 +64,12 @@ public class IshClient implements ClientModInitializer {
 
         MultiBufferSource.BufferSource buffer = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
 
-        BlockPos cameraPos = new BlockPos(
-                (int) camera.getPosition().x,
-                (int) camera.getPosition().y,
-                (int) camera.getPosition().z
-        );
         double cx = camera.getPosition().x;
         double cy = camera.getPosition().y;
         double cz = camera.getPosition().z;
 
-        int radius = 5;
-        for (int x = -radius; x <= radius; x++) {
-            for (int y = -radius; y <= radius; y++) {
-                for (int z = -radius; z <= radius; z++) {
-                    BlockPos pos = cameraPos.offset(x, y, z);
-                    BlockState state = level.getBlockState(pos);
-                    if (state.isAir() || !renderBlocks.contains(state.getBlock())) continue;
-                    drawBlockOutline(pos, poseStack, buffer, cx, cy, cz, 1f, 0f, 0f, 1f);
-                }
-            }
+        for (BlockPos pos : renderBlockPos) {
+            drawBlockOutline(pos, poseStack, buffer, cx, cy, cz, 1f, 0f, 0f, 1f);
         }
 
         buffer.endBatch();
