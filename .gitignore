@@ -42,3 +42,7 @@ replay_*.log
 
 /.lib/cc/
 .env
+
+# sus folders hmmm
+src/main/java/net/kuko/ish/compat/gitignore/
+src/main/java/net/kuko/ish/mixin/slop
