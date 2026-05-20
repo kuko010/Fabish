@@ -120,5 +120,4 @@ public class IshClient implements ClientModInitializer {
             net.kuko.ish.computercraft.UpgradeRegistry.clientRegister();
         }
     }
-
 }

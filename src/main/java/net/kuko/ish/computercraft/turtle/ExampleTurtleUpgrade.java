@@ -11,3 +11,5 @@ public class ExampleTurtleUpgrade extends AbstractTurtleUpgrade {
         super(id, TurtleUpgradeType.PERIPHERAL, stack);
     }
 }
+
+// why is cc so hard

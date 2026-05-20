@@ -30,7 +30,6 @@ public class Ish implements ModInitializer {
 		if (FabricLoader.getInstance().isModLoaded("computercraft")) {
 			net.kuko.ish.computercraft.UpgradeRegistry.register();
 		}
-
 		ConfigUtils.load(ConfigUtils.handler);
 	}
 }
