@@ -12,6 +12,7 @@
   },
   "client": [
     "LevelRendererMixin",
-    "LightTextureMixin"
+    "LightTextureMixin",
+    "slop.ModernComputerClientMixin"
   ]
 }
